@@ -1,5 +1,5 @@
 // function isPowerOfTwo(n) {
-//   if (n < 0) {
+//   if (n < 1) {
 //     return false;
 //   }
 
@@ -22,7 +22,7 @@
 
 
 function isPowerOfTwoBitWise(n) {
-  if (n < 0) {
+  if (n < 1) {
     return false;
   }
 
