@@ -3,11 +3,7 @@
 //-----------------------
 
 // function linear_search(arr, target) {
-//   if (arr.includes(target) === false) {
-//     return -1;
-//   } else {
-//     return arr.indexOf(target);
-//   }
+//   return arr.includes(target) ? arr.indexOf(target) : -1;
 // }
 
 // Big-O = O(n)
