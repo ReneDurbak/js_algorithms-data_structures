@@ -16,7 +16,7 @@ function quick_sort(arr) {
 }
 
 const arr = [-6, 20, 8, -2, 4];
-console.log(quick_sort(arr));
+console.log(quick_sort(arr)); // [-6, -2, 4, 8, 20]
 
 // Worst case - O(n^2)
 // Avg case - O(nlogn)
