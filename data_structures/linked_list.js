@@ -29,13 +29,29 @@ class Linked_list {
     }
     this.size++;
   }
+
+  print() {
+    if (this.isEmpty()) {
+      console.log("List is empty");
+    } else {
+      let curr = this.head;
+      let listValues = "";
+      while (curr) {
+        listValues += `${curr.value} `;
+        curr = curr.next;
+      }
+      console.log(listValues);
+    }
+  }
 }
 
 const list = new Linked_list();
 
-console.log(list.isEmpty());
-console.log(list.getSize());
-
+console.log(list.isEmpty()); // true
+console.log(list.getSize()); // 0
+list.print() // List is empty
 list.prepend(10);
+list.print() // 10
 list.prepend(20);
 list.prepend(30);
+list.print() // 30 20 10
