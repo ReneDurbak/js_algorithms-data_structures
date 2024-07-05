@@ -69,6 +69,30 @@ class Linked_list {
     }
   }
 
+  removeFrom(index) {
+    if (index < 0 || index >= this.size) {
+      console.log("Cannot delete from list");
+      return null;
+    }
+
+    let removedNode;
+    if (index === 0) {
+      removedNode = this.head;
+      this.head = this.head.next;
+    } else {
+      let prev;
+      prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      removedNode = prev.next;
+      prev.next = removedNode.next;
+    }
+
+    this.size--;
+    return removedNode.value;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty");
@@ -90,6 +114,7 @@ console.log(list.isEmpty()); // true
 console.log(list.getSize()); // 0
 list.print(); // List is empty
 
+//---------------------------------------
 // PREPEND & APPEND
 
 // list.prepend(10);
@@ -99,16 +124,25 @@ list.print(); // List is empty
 // list.append(30);
 // list.print(); // 20 10 30
 
-
+//---------------------------
 // INSERT
 
-// list.insert(10, 0)
-// list.print() // 10
-// list.insert(20, 0)
-// list.print() // 20 10
-// list.insert(30, 1) 
-// list.print() // 20 30 10
-// list.insert(40, 2)
-// list.print()
+list.insert(10, 0)
+list.print() // 10
+list.insert(20, 0)
+list.print() // 20 10
+list.insert(30, 1)
+list.print() // 20 30 10
+list.insert(40, 2)
+list.print()
 
 // console.log(list.getSize());
+
+//-----------------------------------
+// DELETE
+
+console.log(`Deleted value: ${list.removeFrom(1)}`) // Deleted value: 30
+list.print() // 20 40 10
+console.log(`Deleted value: ${list.removeFrom(0)}`) // Deleted value: 20
+list.print() // 40 10
+console.log(list.getSize()) // 2
