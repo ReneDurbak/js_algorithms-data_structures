@@ -48,6 +48,27 @@ class Linked_list {
     this.size++;
   }
 
+  insert(value, index) {
+    if (index < 0 || index > this.size) {
+      console.log("Cannot insert into list");
+      return;
+    }
+
+    if (index === 0) {
+      this.prepend(value);
+    } else {
+      const node = new Node(value);
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+
+      node.next = prev.next;
+      prev.next = node;
+      this.size++;
+    }
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty");
@@ -69,9 +90,25 @@ console.log(list.isEmpty()); // true
 console.log(list.getSize()); // 0
 list.print(); // List is empty
 
-list.prepend(10);
-list.print(); // 10
+// PREPEND & APPEND
 
-list.prepend(20);
-list.append(30);
-list.print(); // 20 10 30
+// list.prepend(10);
+// list.print(); // 10
+
+// list.prepend(20);
+// list.append(30);
+// list.print(); // 20 10 30
+
+
+// INSERT
+
+// list.insert(10, 0)
+// list.print() // 10
+// list.insert(20, 0)
+// list.print() // 20 10
+// list.insert(30, 1) 
+// list.print() // 20 30 10
+// list.insert(40, 2)
+// list.print()
+
+// console.log(list.getSize());
