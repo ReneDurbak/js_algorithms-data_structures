@@ -134,7 +134,7 @@ list.print() // 20 10
 list.insert(30, 1)
 list.print() // 20 30 10
 list.insert(40, 2)
-list.print()
+list.print() // 20 30 40 10
 
 // console.log(list.getSize());
 
