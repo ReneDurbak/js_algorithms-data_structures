@@ -102,6 +102,20 @@ class Linked_list {
       this.head = this.head.next;
       this.size--;
       return value;
+    } else {
+      let prev = this.head;
+
+      while (prev.next && prev.next.value !== value) {
+        prev = prev.next;
+      }
+      if (prev.next) {
+        let removedNode = prev.next;
+        prev.next = removedNode.next;
+        this.size--;
+        return value;
+      }
+
+      return null;
     }
   }
 
@@ -159,8 +173,12 @@ list.print(); // 20 30 40 10
 // list.print(); // 40 10
 // console.log(list.getSize()); // 2
 
-
 //-----------------------------------
 // DELETE WITH VALUE
 
-console.log(`Deleted value: ${list.removeValue(20)}`) // Deleted value: 20
+console.log(`Deleted value: ${list.removeValue(20)}`); // Deleted value: 20
+list.print(); // 30 40 10
+console.log(`Deleted value: ${list.removeValue(40)}`); // Deleted value: 40
+list.print(); // 30 10
+console.log(`Deleted value: ${list.removeValue(140)}`); // Deleted value: null
+list.print(); // 30 10
