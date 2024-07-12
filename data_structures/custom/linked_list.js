@@ -119,6 +119,27 @@ class Linked_list {
     }
   }
 
+  search(value) {
+    if (this.isEmpty()) {
+      console.log("Cannot search for a value, list is empty");
+      return -1;
+    }
+    let i = 0;
+    let curr = this.head;
+
+    while (curr) {
+      if (curr.value === value) {
+        console.log(`Item found at index ${i}`);
+        return i;
+      }
+
+      curr = curr.next;
+      i++;
+    }
+    console.log(`Item not found`);
+    return -1;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty");
@@ -176,9 +197,17 @@ list.print(); // 20 30 40 10
 //-----------------------------------
 // DELETE WITH VALUE
 
-console.log(`Deleted value: ${list.removeValue(20)}`); // Deleted value: 20
-list.print(); // 30 40 10
-console.log(`Deleted value: ${list.removeValue(40)}`); // Deleted value: 40
-list.print(); // 30 10
-console.log(`Deleted value: ${list.removeValue(140)}`); // Deleted value: null
-list.print(); // 30 10
+// console.log(`Deleted value: ${list.removeValue(20)}`); // Deleted value: 20
+// list.print(); // 30 40 10
+// console.log(`Deleted value: ${list.removeValue(40)}`); // Deleted value: 40
+// list.print(); // 30 10
+// console.log(`Deleted value: ${list.removeValue(140)}`); // Deleted value: null
+// list.print(); // 30 10
+
+//-----------------------------
+// SEARCH
+
+const testList = new Linked_list();
+list.search(400); // Item not found
+list.search(10); // Item found at index 3
+testList.search(20); // Cannot search for a value, list is empty
