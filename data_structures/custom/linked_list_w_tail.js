@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class Linked_list {
+class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -97,22 +97,24 @@ class Linked_list {
   }
 }
 
-const list = new Linked_list();
+module.exports = LinkedList
+
+// const list = new LinkedList();
 
 //---------------------------------------
 // PREPEND & APPEND
 
-list.prepend(10);
-list.print(); // 10
+// list.prepend(10);
+// list.print(); // 10
 
-list.prepend(20);
-list.append(30);
-list.print(); // 20 10 30
-console.log(`List size: `, list.getSize());
-list.removeFromFront();
-list.print(); // 10 30
-list.removeFromEnd();
-list.print(); // 10
+// list.prepend(20);
+// list.append(30);
+// list.print(); // 20 10 30
+// console.log(`List size: `, list.getSize());
+// list.removeFromFront();
+// list.print(); // 10 30
+// list.removeFromEnd();
+// list.print(); // 10
 
 
-console.log(`List size: `, list.getSize());
+// console.log(`List size: `, list.getSize());
