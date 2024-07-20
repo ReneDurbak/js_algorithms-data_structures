@@ -140,6 +140,24 @@ class Linked_list {
     return -1;
   }
 
+  reverse() {
+    if (this.isEmpty()) {
+      console.log("Cannot reverse an empty list");
+      return -1;
+    } else {
+      let curr = this.head;
+      let prev = null;
+      while (curr) {
+        let next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+      }
+
+      this.head = prev;
+    }
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty");
@@ -185,6 +203,12 @@ list.print(); // 20 30 40 10
 
 // console.log(list.getSize());
 
+//---------------------------------
+// REVERSE
+
+list.reverse();
+list.print();
+
 //-----------------------------------
 // DELETE WITH INDEX
 
@@ -207,7 +231,7 @@ list.print(); // 20 30 40 10
 //-----------------------------
 // SEARCH
 
-const testList = new Linked_list();
-list.search(400); // Item not found
-list.search(10); // Item found at index 3
-testList.search(20); // Cannot search for a value, list is empty
+// const testList = new Linked_list();
+// list.search(400); // Item not found
+// list.search(10); // Item found at index 3
+// testList.search(20); // Cannot search for a value, list is empty
