@@ -34,7 +34,19 @@ class Linked_list {
     }
   }
 
-  prepend(value) {}
+  prepend(value) {
+    const node = new Node(value);
+
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
+
+    this.size++;
+  }
 
   append(value) {}
 
