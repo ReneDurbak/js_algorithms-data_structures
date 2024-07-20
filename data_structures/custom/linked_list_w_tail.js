@@ -73,7 +73,28 @@ class Linked_list {
     return value;
   }
 
-  removeFromEnd(value) {}
+  removeFromEnd() {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    const value = this.tail.value;
+
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let prev = this.head;
+      while (prev.next !== this.tail) {
+        prev = prev.next;
+      }
+      prev.next = null;
+      this.tail = prev;
+    }
+
+    this.size--;
+    return value;
+  }
 }
 
 const list = new Linked_list();
@@ -87,19 +108,11 @@ list.print(); // 10
 list.prepend(20);
 list.append(30);
 list.print(); // 20 10 30
+console.log(`List size: `, list.getSize());
 list.removeFromFront();
-list.print();
+list.print(); // 10 30
+list.removeFromEnd();
+list.print(); // 10
 
-//---------------------------
-// INSERT
 
-// list.insert(10, 0);
-// list.print(); // 10
-// list.insert(20, 0);
-// list.print(); // 20 10
-// list.insert(30, 1);
-// list.print(); // 20 30 10
-// list.insert(40, 2);
-// list.print(); // 20 30 40 10
-
-// console.log(list.getSize());
+console.log(`List size: `, list.getSize());
