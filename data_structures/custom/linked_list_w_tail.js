@@ -59,10 +59,19 @@ class Linked_list {
       this.tail = node;
     }
 
-    this.size++
+    this.size++;
   }
 
-  removeFromFront(index) {}
+  removeFromFront() {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    const value = this.head.value;
+    this.head = this.head.next;
+    this.size--;
+    return value;
+  }
 
   removeFromEnd(value) {}
 }
@@ -78,6 +87,8 @@ list.print(); // 10
 list.prepend(20);
 list.append(30);
 list.print(); // 20 10 30
+list.removeFromFront();
+list.print();
 
 //---------------------------
 // INSERT
